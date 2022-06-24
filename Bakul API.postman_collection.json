@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "498d6f12-f0aa-7824-e07d-89cfb0a3604e",
+		"name": "Bakul API",
+		"description": "Bakul API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18717448"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"nama customer\",\r\n    \"email\": \"customer@customer.com\",\r\n    \"password\": \"12345678\",\r\n    \"address\": \"alamat\",\r\n    \"phone\": \"08939399333\"\r\n}"
+				},
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/auth/register",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"phone\":\"081904597978\",\n\t\"password\":\"12345678\"\n}"
+				},
+				"url": {
+					"raw": "https://api-bakul-dev.afedigi.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"Logout By Token Authorization"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/auth/logout",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banner Utama",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9iYWt1bC1hcGkudGVzdFwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDMzNTc5NTcsImV4cCI6MTY0MzM2MTU1NywibmJmIjoxNjQzMzU3OTU3LCJqdGkiOiJRWVlLNWRPZUIxa3ZPenVpIiwic3ViIjo3LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.HblytVkLbr-oRZpBM9XOlg_j6VwWr4GCXItcaPuic4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/home/banner_home",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"home",
+						"banner_home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/home/allcategory",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"home",
+						"allcategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/home/allproducts",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"home",
+						"allproducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU2ODUyNTcsImV4cCI6MTY0NTY4ODg1NywibmJmIjoxNjQ1Njg1MjU3LCJqdGkiOiJ1U2FQZkhzcWRyM0xIV21xIiwic3ViIjoxMiwicHJ2IjoiZjY0ZDQ4YTZjZWM3YmRmYTdmYmY4OTk0NTRiNDg4YjNlNDYyNTIwYSJ9.3JFGVNuPKMN9fL4JzktjtbVJFeXCPzIGOprXkP_3VS4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api-bakul-dev.afedigi.com/detail/cart",
+					"protocol": "https",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"detail",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU3NzI0NzAsImV4cCI6MTY0NTc3NjA3MCwibmJmIjoxNjQ1NzcyNDcwLCJqdGkiOiJjVkg0dUNVTURIVFpzTWVJIiwic3ViIjo1LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.WAoEkcuA5Tv1rmLSEvsaap4B_6GeLLOwyhXx4aeJVlc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/detail/cart",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"detail",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://bakul-api.test/detail/cart/{cart_id}",
+					"protocol": "http",
+					"host": [
+						"bakul-api",
+						"test"
+					],
+					"path": [
+						"detail",
+						"cart",
+						"{cart_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Checkout Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU4ODkwMTgsImV4cCI6MTY0NTg5MjYxOCwibmJmIjoxNjQ1ODg5MDE4LCJqdGkiOiJ3Tm9HWkRwQW92aEpscjBvIiwic3ViIjo1LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.KhAtKxuZq93gSHFdL_0e0HVj4nCc3Vh9VciKuygnli0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "payment_type",
+							"value": "cash_on_delivery",
+							"type": "text"
+						},
+						{
+							"key": "payment_status",
+							"value": "unpaid",
+							"type": "text"
+						},
+						{
+							"key": "grand_total",
+							"value": "135000",
+							"type": "text"
+						},
+						{
+							"key": "shipping_cost",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "shipping_courier",
+							"value": "cash_on_delivery",
+							"type": "text"
+						},
+						{
+							"key": "shipping_service",
+							"value": "cash_on_delivery",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/checkout/order",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"checkout",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU4ODkwMTgsImV4cCI6MTY0NTg5MjYxOCwibmJmIjoxNjQ1ODg5MDE4LCJqdGkiOiJ3Tm9HWkRwQW92aEpscjBvIiwic3ViIjo1LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.KhAtKxuZq93gSHFdL_0e0HVj4nCc3Vh9VciKuygnli0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/checkout/order?limit=10&sort_by=created_at&sort_mode=asc",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"checkout",
+						"order"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_mode",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU1ODM3NDIsImV4cCI6MTY0NTU4NzM0MiwibmJmIjoxNjQ1NTgzNzQyLCJqdGkiOiJ2QUxlUE15d3ZPdm9SOW9UIiwic3ViIjoxMSwicHJ2IjoiZjY0ZDQ4YTZjZWM3YmRmYTdmYmY4OTk0NTRiNDg4YjNlNDYyNTIwYSJ9.g3kGZIBiKZDkp0Cjy6FvXAOBtv1BT3i2ex9ckN4FWyg\"",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://api-bakul-dev.afedigi.com/auth",
+					"protocol": "https",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart: count-cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLWJha3VsLWRldi5hZmVkaWdpLmNvbVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDU2Njk1MTMsImV4cCI6MTY0NTY3MzExMywibmJmIjoxNjQ1NjY5NTEzLCJqdGkiOiI2TDVwblBmYWRqb2FDNlJzIiwic3ViIjoxMSwicHJ2IjoiZjY0ZDQ4YTZjZWM3YmRmYTdmYmY4OTk0NTRiNDg4YjNlNDYyNTIwYSJ9.8-nJS5mMrywdVjRI-zYgpypaY1NWWIZutvNORIVfSY8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-bakul-dev.afedigi.com/detail/cart/count-cart",
+					"protocol": "http",
+					"host": [
+						"api-bakul-dev",
+						"afedigi",
+						"com"
+					],
+					"path": [
+						"detail",
+						"cart",
+						"count-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "History Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9iYWt1bC1hcGkudGVzdFwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDYwMzU0OTQsImV4cCI6MTY0NjY0MDI5NCwibmJmIjoxNjQ2MDM1NDk0LCJqdGkiOiJJY1N6UENTbXVZSEtTM2htIiwic3ViIjo3LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.WgzbUFvBStt23uNeDRS_FUIatnquCtOSfwt_-4AGsL0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bakul-api.test/historyorder?limit=10&sort_by=created_at&sort_mode=asc",
+					"protocol": "http",
+					"host": [
+						"bakul-api",
+						"test"
+					],
+					"path": [
+						"historyorder"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_mode",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "History Order > detail-pembelian",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9iYWt1bC1hcGkudGVzdFwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDYwMzU0OTQsImV4cCI6MTY0NjY0MDI5NCwibmJmIjoxNjQ2MDM1NDk0LCJqdGkiOiJJY1N6UENTbXVZSEtTM2htIiwic3ViIjo3LCJwcnYiOiJmNjRkNDhhNmNlYzdiZGZhN2ZiZjg5OTQ1NGI0ODhiM2U0NjI1MjBhIn0.WgzbUFvBStt23uNeDRS_FUIatnquCtOSfwt_-4AGsL0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bakul-api.test/historyorder/detail-pembelian/26012022-1234567",
+					"protocol": "http",
+					"host": [
+						"bakul-api",
+						"test"
+					],
+					"path": [
+						"historyorder",
+						"detail-pembelian",
+						"26012022-1234567"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
